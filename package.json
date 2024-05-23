@@ -7,10 +7,13 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "build:github": "npm run delete:docs && npm run build:href && npm run copy:dist",
+    "clean:docs": "rimraf docs",
+    "build:github": "npm run clean:docs && npm run build:href && npm run copy:dist",
     "build:href": "ng build --base-href=./",
-    "delete:docs": "del docs",
-    "copy:dist": "copyfiles dist/03-gifs-app/browser/* ./docs -f"
+    "copy:dist": "copyfiles dist/browser/* ./docs -f",
+    "build:prod": "npm run clean:dist && ng build && npm run zip",
+    "clean:dist": "rimraf dist",
+    "zip": "cd dist/browser && bestzip ../build.zip .[!.]* *"
   },
   "private": true,
   "dependencies": {
@@ -31,14 +34,15 @@
     "@angular/cli": "^17.3.7",
     "@angular/compiler-cli": "^17.3.0",
     "@types/jasmine": "~5.1.0",
+    "bestzip": "^2.2.1",
     "copyfiles": "^2.4.1",
-    "del-cli": "^5.1.0",
     "jasmine-core": "~5.1.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.2.0",
     "karma-coverage": "~2.2.0",
     "karma-jasmine": "~5.1.0",
     "karma-jasmine-html-reporter": "~2.1.0",
+    "rimraf": "^5.0.7",
     "typescript": "~5.4.2"
   }
 }
