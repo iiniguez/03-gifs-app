@@ -5,5 +5,5 @@ import { Component } from '@angular/core';
   templateUrl: './card-list.component.html',
 })
 export class CardList {
-
+  public cards: string[] = ['Contenedor 1', 'Contenedor 2', 'Contenedor 3', 'Contenedor 4'];
 }
