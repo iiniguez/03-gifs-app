@@ -26,7 +26,7 @@
             "outputPath": "dist/",
             "index": "src/index.html",
             "browser": "src/main.ts",
-            "polyfills": [
+            "polyfills":[
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
@@ -44,7 +44,7 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
+                  "maximumWarning": "800kb",
                   "maximumError": "1mb"
                 },
                 {
@@ -101,5 +101,8 @@
         }
       }
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }

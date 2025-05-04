@@ -17,4 +17,5 @@ import { CardList } from "./components/card-list/card-list.component";
     HomePageComponent,
   ]
 })
+
 export class GifsModule { }
